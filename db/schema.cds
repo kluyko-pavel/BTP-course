@@ -15,6 +15,12 @@ conversation  : Composition of many {
     author    : type of managed:createdBy;
     message   : String;
 };
+comments     : Composition of many Comments on comments.incident = $self;
+}
+
+entity Comments : cuid, managed {
+  incident   : Association to Incidents;
+  text       : String;
 }
 
 /**

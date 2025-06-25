@@ -1,0 +1,5 @@
+ID;incident_ID;createdBy;createdAt;text
+91c17b25-3f2d-4e14-9f1e-1c8fb5d8c90c;3b23bb4b-4ac7-4a24-ac02-aa10cabd842c;Pavel;2024-06-01T10:00:00Z;First comment
+5f7dca8e-441c-4a64-a7f0-fc760c1dd1d7;3a4ede72-244a-4f5f-8efa-b17e032d01ee;Anna;2024-06-01T10:00:00Z;Second comment
+5f7dca8e-441c-4a64-a7f0-fc760c1dd1d5;3ccf474c-3881-44b7-99fb-59a2a4668418;Anna;2024-06-01T10:00:00Z;Second comment
+5f7dca8e-441c-4a64-a7f0-fc760c1dd1d2;3583f982-d7df-4aad-ab26-301d4a157cd7;Anna;2024-06-01T10:00:00Z;Second comment

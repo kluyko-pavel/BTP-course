@@ -1,0 +1,42 @@
+<mvc:View controllerName="nsl.incidentsfreestyle.controller.ListOfIncidents"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns="sap.m">
+    <f:DynamicPage fitContent="true">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="{i18n>title}" />
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:content>
+			<Table
+				sticky="ColumnHeaders"
+				items="{/ListOfIncidents}"
+				width="auto"
+			>
+				<columns>
+					<Column>
+						<Text text="{i18n>incidentTitleCol}" />
+					</Column>
+					<Column>
+						<Text text="{i18n>incidentCustomerCol}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text
+								text="{title}"
+							/>
+							<Text
+								text="{customer/name}"
+							/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

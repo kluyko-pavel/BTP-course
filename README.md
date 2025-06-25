@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # BTP-course
-=======
+
 # Getting Started
 
 Welcome to your new project.
@@ -26,4 +25,3 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
->>>>>>> 1aa467a (initial commit)
