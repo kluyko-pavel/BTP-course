@@ -7,6 +7,8 @@ class ProcessorService extends cds.ApplicationService {
         this.after("UPDATE", "Incidents", () => this.getCustomers());
         this.before("CREATE", "Incidents", (req) => this.changeUrgencyDueToSubject(req.data));
         this.on('getItemsByQuantity', (quantity) => this.getItemsByQuantity(quantity));
+        this.on('createItem', (req) => this.createItemHandler(req));
+        this.before('CREATE', 'Items', (req) => this.validateQuantity(req));
 
         return super.init();
     }
@@ -37,5 +39,18 @@ class ProcessorService extends cds.ApplicationService {
         const items = await SELECT.from('ProcessorService.Items').where({ quantity });
         return items;
     }
+
+    async createItemHandler(req) {
+         const { title, descr, quantity } = req.data;
+            const item = await INSERT.into('Items').entries({ title, descr, quantity });
+            return item;
+    }
+
+    async validateQuantity(req) {
+        const { quantity } = req.data;
+        if (quantity > 100) {
+          return req.reject(400, 'Quantity cannot be greater than 100');
+        }
+      }
 }
 module.exports = { ProcessorService }
