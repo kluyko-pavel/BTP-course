@@ -65,5 +65,11 @@ key code: String enum {
 };
 }
 
+entity Items : cuid, managed {
+  title    : String;
+  descr    : String;
+  quantity : Integer;
+}
+
 type EMailAddress : String;
 type PhoneNumber : String;

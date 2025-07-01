@@ -6,6 +6,7 @@ class ProcessorService extends cds.ApplicationService {
         this.before("UPDATE", "Incidents", (req) => this.onUpdate(req));
         this.after("UPDATE", "Incidents", () => this.getCustomers());
         this.before("CREATE", "Incidents", (req) => this.changeUrgencyDueToSubject(req.data));
+        this.on('getItemsByQuantity', (quantity) => this.getItemsByQuantity(quantity));
 
         return super.init();
     }
@@ -29,7 +30,12 @@ class ProcessorService extends cds.ApplicationService {
     }
 
     async getCustomers() {
-        const a = await SELECT.from("ProcessorService.Customers");
+        return await SELECT.from("ProcessorService.Customers");
+    }
+    
+    async getItemsByQuantity(quantity) {
+        const items = await SELECT.from('ProcessorService.Items').where({ quantity });
+        return items;
     }
 }
 module.exports = { ProcessorService }
