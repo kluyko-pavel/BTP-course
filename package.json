@@ -6,39 +6,55 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^3.26.4",
+    "@sap-cloud-sdk/http-client": "^3.26.4",
+    "@sap-cloud-sdk/resilience": "^3.26.4",
+    "@sap-cloud-sdk/util": "^3.26.4",
     "@sap/cds": "^8",
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1",
-    "@cap-js/cds-types": "^0.10.0"
+    "@cap-js/cds-test": "^0.4.0",
+    "@cap-js/cds-types": "^0.10.0",
+    "@cap-js/sqlite": "^1"
   },
   "scripts": {
     "start": "cds-serve",
     "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-incidents-freestyle": "cds watch --open incidents-freestyle/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-incidents-freestyle": "cds watch --open incidents-freestyle/webapp/index.html?sap-ui-xx-viewCache=false",
+    "test": "npx jest tests/test.js"
   },
   "cds": {
-  "requires": {
-    "[development]": {
-      "auth": {
-        "kind": "mocked",
-        "users":  {
-          "incident.support@tester.sap.com": {
-            "password": "initial",
-            "roles": ["support"]
-          },
-          "alice": {
-            "roles": ["support"]
-          },
-          "bob": {
-            "roles": ["support"]
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "incident.support@tester.sap.com": {
+              "password": "initial",
+              "roles": [
+                "support"
+              ]
+            },
+            "alice": {
+              "roles": [
+                "support"
+              ]
+            },
+            "bob": {
+              "roles": [
+                "support"
+              ]
+            }
           }
         }
+      },
+      "API_BUSINESS_PARTNER": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_BUSINESS_PARTNER"
       }
     }
-  }
-},
+  },
   "sapux": [
     "app/incidents"
   ]
