@@ -52,6 +52,22 @@
       "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
         "model": "srv/external/API_BUSINESS_PARTNER"
+      },
+      "northwind": {
+        "kind": "odata-v2",
+        "model": "srv/external/northwind",
+        "credentials": {
+          "url": "https://services.odata.org/V2/Northwind/Northwind.svc"
+        }
+      },
+      "[hybrid]": {
+        "northwind_remote": {
+          "kind": "odata-v2",
+          "model": "srv/external/northwind_remote",
+          "credentials": {
+            "destination": "northwind_remote"
+          }
+        }
       }
     }
   },

@@ -1,4 +1,6 @@
 using { API_BUSINESS_PARTNER as S4 } from './external/API_BUSINESS_PARTNER';
+using { northwind } from './external/northwind';
+using { northwind_remote } from './external/northwind_remote';
 
 service RemoteService {
   
@@ -26,5 +28,11 @@ service RemoteService {
     key AddressID as addressId,
     PhoneNumber as phone
   }
+
+  entity Orders as projection on northwind.Orders;
+  function getOrders() returns array of Orders;
+
+  entity Orders2 as projection on northwind_remote.Orders;
+  function getOrders2() returns array of Orders;
 
 }
