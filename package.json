@@ -6,17 +6,20 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/hana": "^1.9.1",
     "@sap-cloud-sdk/connectivity": "^3.26.4",
     "@sap-cloud-sdk/http-client": "^3.26.4",
     "@sap-cloud-sdk/resilience": "^3.26.4",
     "@sap-cloud-sdk/util": "^3.26.4",
     "@sap/cds": "^8",
+    "@sap/xssec": "^4",
     "express": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-test": "^0.4.0",
     "@cap-js/cds-types": "^0.10.0",
-    "@cap-js/sqlite": "^1"
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": ">=8"
   },
   "scripts": {
     "start": "cds-serve",
@@ -51,7 +54,10 @@
       },
       "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
-        "model": "srv/external/API_BUSINESS_PARTNER"
+        "model": "srv/external/API_BUSINESS_PARTNER",
+        "credentials": {
+          "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
+        }
       },
       "northwind": {
         "kind": "odata-v2",
@@ -60,15 +66,20 @@
           "url": "https://services.odata.org/V2/Northwind/Northwind.svc"
         }
       },
-      "[hybrid]": {
         "northwind_remote": {
           "kind": "odata-v2",
           "model": "srv/external/northwind_remote",
           "credentials": {
             "destination": "northwind_remote"
           }
-        }
-      }
+      },
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
+      },
+      "destinations": true,
+      "html5-runtime": true,
+      "workzone": true
     }
   },
   "sapux": [

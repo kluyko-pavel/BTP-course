@@ -1,3 +1,7 @@
+/mta_archives/
+/dist
+/resources
+
 # CAP incident-management
 _out
 *.db
