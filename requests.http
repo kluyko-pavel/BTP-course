@@ -1,10 +1,16 @@
-POST http://localhost:4004/odata/v4/processor/createItem
-Content-Type: application/json
-Accept: application/json
-Authorization: Basic YWxpY2U6
+# POST http://localhost:4004/odata/v4/processor/createItem
+# Content-Type: application/json
+# Accept: application/json
+# Authorization: Basic YWxpY2U6
 
-{
-  "title": "new itemq",
-  "descr": "test",
-  "quantity": 99
-}
+# {
+#   "title": "new itemq",
+#   "descr": "test",
+#   "quantity": 99
+# }
+
+GET http://localhost:4004/odata/v4/remote/getSimpleMessage()
+
+# GET http://node_DEST.dest/api/message
+
+# GET http://localhost:8887/reload

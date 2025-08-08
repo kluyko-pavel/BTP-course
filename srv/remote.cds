@@ -35,4 +35,6 @@ service RemoteService {
   entity Orders2 as projection on northwind_remote.Orders;
   function getOrders2() returns array of Orders;
 
+  function getSimpleMessage() returns String;
+
 }

@@ -73,6 +73,14 @@
             "destination": "northwind_remote"
           }
       },
+      "[hybrid]": {
+        "node_DEST": {
+          "kind": "rest",
+          "credentials": {
+            "destination": "node_DEST"
+        }
+        }
+      },
       "[production]": {
         "db": "hana",
         "auth": "xsuaa"
